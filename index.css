@@ -1,3 +1,140 @@
-#heading {
-    color: red;
+#root{
+    font-family: Arial, sans-serif;
 }
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    border: 1px solid black;
+    position: fixed; /* Changed from static to fixed */
+    top: 0;
+    background-color: white;
+    width: 100%;
+    
+}
+.logo{
+    width:100px
+}
+.nav-bar > ul{
+    display:flex;
+    padding:0px 20px;
+}
+.nav-bar > ul >li{
+    font-size: 20px;
+    padding:10px;
+    margin:10px;
+    list-style-type: none;
+
+
+}
+.nav-bar>ul>li:hover{
+    transform: translateY(2px);
+
+}
+.cart{
+    width:50px
+}
+.cart:hover{
+    transform: translateY(2px);
+
+}
+
+.rest-container{
+    display:flex;
+    flex-wrap: wrap;
+
+}
+.rest-card{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding: 16px;
+    margin: 5px;
+    width: 250px;
+    height: 350px;
+    font-family: Arial, sans-serif;
+    /* transition: box-shadow 0.3s ease-in-out; */
+    
+}
+.rest-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+    transform: scale(0.95);
+}
+.res-img-shimmer{
+    background-color: rgba(57, 64, 102, 0.329);
+    width:100%;
+    height: 200px;
+}
+.text-shimmer{
+    margin: 18px;
+    width:200px;
+    height:10px;
+    background-color: rgba(57, 64, 102, 0.329);
+    
+}
+.rest-img{
+    width:100%;
+    height: 200px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.rest-name {
+    font-size: 1.2em;
+    margin: 8px 0;
+}
+.rest-desc {
+    color: #666;
+    margin: 8px 0;
+}
+.rating {
+    float: right;
+    font-weight: bold;
+    color: #666;
+}
+.btn{
+    background-color: blanchedalmond;
+    border-radius: 10;
+    border-style:hidden;
+    padding: 16px;
+    margin: 10px;
+    color: rgb(133, 17, 17);
+}
+.btn:hover{
+    transform: translateY(2px);
+    cursor: pointer;
+}
+.btn:active {
+    background-color: rgb(133, 17, 17); 
+    color: blanchedalmond;
+}
+
+.space{
+    margin-top: 150px;
+}
+.filter-search{
+    display: flex;
+    flex-wrap: wrap;
+}
+.search-bar {
+    width: 400px;
+    height: 15px;
+    padding: 16px;
+    margin: 10px 0 10px 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24), 0 2px 4px rgba(0, 0, 0, 0.32);
+}
+#search-btn{
+    margin: 10px 760px 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+  }
