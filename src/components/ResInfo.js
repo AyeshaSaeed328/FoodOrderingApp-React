@@ -2,24 +2,23 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useResInfo from "../utils/useResInfo";
+import ResCategories from "./ResCategories";
 
 const ResInfo = () => {
     const { resId } = useParams();
-    const [info, menu] = useResInfo(resId);
+    const [info, categories] = useResInfo(resId);
     
 
     if (info === null) return <Shimmer />
 
     return (
-        <div>
-            <div className="space"></div>
-            <h1>{info.name}</h1>
-            <p>{info.avgRating}</p>
+        
+        <div className="min-h-screen text-center dark:bg-gray-800 dark:text-white">
+            <h1 className="m-2 p-2 text-3xl font-bold">{info.name}</h1>
+            {/* <p>{info.avgRating}</p> */}
             <div>
-                {menu.map((item) =>
-                    <li key={item?.card?.info?.id} >{item?.card?.info?.name} - Rs.{item?.card?.info?.price/100 || item?.card?.info?.defaultPrice/100}</li>
-                    
-                )}
+                
+                {categories.map((category) =>( <ResCategories key={category?.card.card.title} data= {category}/>))}
 
 
             </div>

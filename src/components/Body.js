@@ -1,4 +1,4 @@
-import RestCard from "./ResCard";
+import RestCard, {RestCardwithPromoted} from "./ResCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -9,12 +9,14 @@ const Body = () => {
     const { listOfRes, filteredListOfRes, setFilteredListOfRes } = useRestaurants(); 
     const [searchText, setSearchText] = useState("");
 
+    console.log(listOfRes);
+    const RestCardPromoted = RestCardwithPromoted(RestCard)
+
     const onlineStatus = useOnlineStatus();
 
     if (onlineStatus === false) {
         return (
             <div>
-                <div className="space"></div>
                 <h1>Looks like you are offline</h1>
             </div>
         );
@@ -39,19 +41,23 @@ const Body = () => {
     };
 
     return (
-        <div className="body">
+        <div className="body dark:bg-gray-800 dark:text-white">
             <div className="space"></div>
             <div className="filter-search">
-                <input type="text" className="search-bar" placeholder="Search" value={searchText} onChange={handleSearchChange}/>
+                <input type="text" className="w-full py-2 px-4 pl-10 border text-gray-900 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"
+                 placeholder="Search" value={searchText} onChange={handleSearchChange}/>
                 
-                <button id="filter-btn" className="btn" onClick={handleTopRatedClick}>
+                <button id="filter-btn"  className="bg-blue-500 text-white py-2 px-4 rounded-lg ml-[1180px] mt-5 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 ease-in-out"
+                onClick={handleTopRatedClick}>
                     Top Rated Restaurant
                 </button>
             </div>
-            <div className="rest-container">
-                {filteredListOfRes.map((restaurant) => (
+            <div className="rest-container flex flex-wrap m-5 p-4">
+                {filteredListOfRes.map((restaurant, index) => (
                     <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>
-                        <RestCard resData={restaurant} />
+                        {index < 5 ? <RestCardPromoted resData={restaurant} /> : <RestCard resData={restaurant} />}
+
+                        
                     </Link>
                 ))}
             </div>

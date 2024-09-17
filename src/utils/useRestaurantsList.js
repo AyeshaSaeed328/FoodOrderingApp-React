@@ -10,7 +10,7 @@ const useRestaurants = () => {
             const data = await fetch(resList_URL);
             const json = await data.json();
 
-            const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+            const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             setListOfRes(restaurants);
             setFilteredListOfRes(restaurants);
         };
